@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Phish Detector</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="bg-contact100">
+
+		<div class="container-contact100" style="background-image: url('https://media.giphy.com/media/i4jKn7itdV2Tvjzj6Y/giphy.gif');">
+			<div class="wrap-contact100">
+
+
+				<form class="contact100-form validate-form" role="form" action="/" method="POST" onsubmit="showSpinner()">
+					<span class="contact100-form-title">
+						Phishing URL Detector
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Message required">
+						<input type="text" class="input100" id="inputC" name="url"  placeholder="Enter URL here">
+						<span class="focus-input100"></span>
+					</div>
+
+
+
+					<div class="container-contact100-form-btn" >
+						<button class="contact100-form-btn" type="submit" style="width: 175px">
+							Detect
+						</button><span id="loader" style="visibility: hidden"><img src="https://media.giphy.com/media/sSgvbe1m3n93G/giphy.gif" style="width: 50px; "> </span>
+					</div><br>
+
+                    {% if data == " " %}
+
+
+
+					{% elif  data == "Phishing" %}
+
+					<div class="modal-content" style="margin-left: 15px; height: 70px;">
+						<p align="center" style="height: 50px;">{{ data }}<i class="fa fa-exclamation" style="margin-left: 20px;font-size:60px;color:red;text-shadow:2px 2px 4px #000000;"></i></p>
+
+					</div>
+
+					{% elif data == "Legitimate" %}
+					<div class="modal-content" style="margin-left: 15px; height: 70px;">
+						<p align="center" style="height: 50px;"> {{ data }} <i class="fa fa-check" style="margin-left: 20px;font-size:60px;color:green;text-shadow:2px 2px 4px #000000;"></i></p>
+
+					</div>
+
+					{% endif %}
+
+
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+<script>
+                function showSpinner() {
+                  document.getElementById("loader").style.visibility = "visible";
+                                  }
+            </script>
